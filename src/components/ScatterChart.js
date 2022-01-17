@@ -1,8 +1,19 @@
 import React from "react";
-
+import {
+  Chart as ChartJS,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { Scatter } from "react-chartjs-2";
+//import Chart from "chart.js/auto";
+//import faker from "faker";
 
-function ScatterChart() {
+function ScatterChart({ data1 }) {
+  ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
+
   const options = {
     scales: {
       y: {
