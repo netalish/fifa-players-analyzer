@@ -16,3 +16,17 @@
 h2 {
   color: #172e5c;
 }
+
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  padding: 0 20px;
+  margin: 20px;
+}
+
+.ageRange {
+  margin: 20px;
+}
