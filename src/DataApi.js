@@ -6,6 +6,12 @@ class DataApi {
   constructor(rawData) {
     this.mapData = this.arrangeData(rawData);
     this.mapData = this.mapIntoObject(this.mapData);
+
+    Object.keys(this.mapData).forEach((key) => {
+      if (this.mapData[key]) {
+        localStorage.setItem(key, JSON.stringify(this.mapData[key]));
+      }
+    });
   }
 
   arrangeData(data) {
@@ -48,16 +54,18 @@ class DataApi {
       newData = [...data];
 
       newData.splice(0, firstIndexForNewData);
-
+      //data = JSON.parse(localStorage.getItem('key');
       for (let i = to - 1; i < to; i++) {
-        if (this.mapData[i]) {
-          newData = [...newData, ...this.mapData[i]];
+        let ageArray = JSON.parse(localStorage.getItem(i));
+        if (ageArray) {
+          newData = [...newData, ...ageArray];
         }
       }
     } else {
       for (let i = from; i < to; i++) {
-        if (this.mapData[i]) {
-          newData = [...newData, ...this.mapData[i]];
+        let ageArray = JSON.parse(localStorage.getItem(i));
+        if (ageArray) {
+          newData = [...newData, ...ageArray];
         }
       }
     }
